@@ -17,6 +17,7 @@ def main():
 	enable_pin = 18
 	coil_A_1_pin = 4
 	coil_A_2_pin = 17
+	coil_B_1_pin = 23
 	coil_B_2_pin = 24
 	
 	GPIO.setup(enable_pin, GPIO.OUT)
