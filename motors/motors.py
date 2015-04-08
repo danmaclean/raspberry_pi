@@ -21,6 +21,7 @@ class Motor:
         return degrees * SECONDS_PER_DEGREE
         
     def go_clockwise(self,degrees=360):
+        print degrees, " degrees to do"
         GPIO.output(self.a,GPIO.HIGH)
         GPIO.output(self.b,GPIO.LOW)
         GPIO.output(self.e,GPIO.HIGH)
