@@ -14,7 +14,7 @@ class Motor:
         GPIO.setup(self.b, GPIO.OUT)
         GPIO.setup(self.e, GPIO.OUT)
     
-    def degrees_to_time(degrees):
+    def degrees_to_time(self,degrees):
         SECONDS_PER_REVOLUTION = 4.0
         SECONDS_PER_DEGREE = SECONDS_PER_REVOLUTION / 360.0
         time = degrees * SECONDS_PER_DEGREE
