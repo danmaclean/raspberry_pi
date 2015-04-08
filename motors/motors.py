@@ -10,6 +10,7 @@ class Motor:
         self.b = b
         self.e = e
         
+        print self.e
         GPIO.setup(self.a, GPIO.OUT)
         GPIO.setup(self.b, GPIO.OUT)
         GPIO.setup(self.e, GPIO.OUT)
