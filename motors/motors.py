@@ -5,6 +5,9 @@ GPIO.setmode(GPIO.BCM)
 
 class Motor:
     
+    SECONDS_PER_REVOLUTION = 4.0
+    SECONDS_PER_DEGREE = SECONDS_PER_REVOLUTION / 360.0
+    
     def __init__(self, a,b,e):
         self.a = a
         self.b = b
@@ -13,13 +16,16 @@ class Motor:
         GPIO.setup(self.a, GPIO.OUT)
         GPIO.setup(self.b, GPIO.OUT)
         GPIO.setup(self.e, GPIO.OUT)
-    
-    def go_clockwise(self):
+
+    def degrees_to_time(degrees):
+        return degrees * SECONDS_PER_DEGREE
+        
+    def go_clockwise(self,degrees=360):
         GPIO.output(self.a,GPIO.HIGH)
         GPIO.output(self.b,GPIO.LOW)
         GPIO.output(self.e,GPIO.HIGH)
 
-    def go_anticlockwise(self):
+    def go_anticlockwise(self,degrees=360):
         GPIO.output(self.a,GPIO.LOW)
         GPIO.output(self.b,GPIO.HIGH)
         GPIO.output(self.e,GPIO.HIGH)        
