@@ -10,7 +10,6 @@ class Motor:
         self.b = b
         self.e = e
         
-        print self.e
         GPIO.setup(self.a, GPIO.OUT)
         GPIO.setup(self.b, GPIO.OUT)
         GPIO.setup(self.e, GPIO.OUT)
@@ -19,6 +18,11 @@ class Motor:
         GPIO.output(self.a,GPIO.HIGH)
         GPIO.output(self.b,GPIO.LOW)
         GPIO.output(self.e,GPIO.HIGH)
+
+    def go_anticlockwise(self):
+        GPIO.output(self.a,GPIO.LOW)
+        GPIO.output(self.b,GPIO.HIGH)
+        GPIO.output(self.e,GPIO.HIGH)        
 
     def stop(self):
         GPIO.output(self.e,GPIO.LOW)
@@ -29,6 +33,9 @@ class Motor:
 motor = Motor(4,17,18)
 motor.go_clockwise() 
 sleep(2)
+motor.go_anticlockwise()
+sleep(2)
+
 motor.stop()
  
  
