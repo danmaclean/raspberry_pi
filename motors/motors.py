@@ -22,15 +22,15 @@ class Motor:
         print "time to run= ", time
         return time
         
-    def go_clockwise(self,degrees=360):
+    def go_clockwise(self,degrees):
         print degrees, " degrees to do"
         GPIO.output(self.a,GPIO.HIGH)
         GPIO.output(self.b,GPIO.LOW)
         GPIO.output(self.e,GPIO.HIGH)
-        sleep(degrees_to_time(degrees))
+        sleep(self.degrees_to_time(degrees))
         self.stop()
 
-    def go_anticlockwise(self,degrees=360):
+    def go_anticlockwise(self,degrees):
         GPIO.output(self.a,GPIO.LOW)
         GPIO.output(self.b,GPIO.HIGH)
         GPIO.output(self.e,GPIO.HIGH)
