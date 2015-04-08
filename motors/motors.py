@@ -9,6 +9,10 @@ class Motor:
         self.a = a
         self.b = b
         self.e = e
+        
+        GPIO.setup(self.a, GPIO.OUT)
+        GPIO.setup(self.b, GPIO.OUT)
+        GPIO.setup(self.e, GPIO.OUT)
     
     def go_clockwise(self):
         GPIO.output(self.a,GPIO.HIGH)
