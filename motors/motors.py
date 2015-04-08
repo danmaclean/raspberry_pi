@@ -17,7 +17,7 @@ class Motor:
         GPIO.setup(self.b, GPIO.OUT)
         GPIO.setup(self.e, GPIO.OUT)
 
-    def degrees_to_time(degrees):
+    def self.degrees_to_time(degrees):
         return degrees * SECONDS_PER_DEGREE
         
     def go_clockwise(self,degrees=360):
@@ -31,22 +31,24 @@ class Motor:
         GPIO.output(self.a,GPIO.LOW)
         GPIO.output(self.b,GPIO.HIGH)
         GPIO.output(self.e,GPIO.HIGH)
-        sleep(degrees_to_time(degrees))
+        sleep(self.degrees_to_time(degrees))
         self.stop()        
 
     def stop(self):
         GPIO.output(self.e,GPIO.LOW)
     
+    def cleanup(self):
+        GPIO.cleanup()
 
-
-     
-motor = Motor(4,17,18)
-motor.go_clockwise(360) 
-#sleep(2)
-motor.go_anticlockwise(360)
-#sleep(2)
-
-#motor.stop()
- 
- 
 GPIO.cleanup()
+
+try:
+    motor = Motor(4,17,18)
+    motor.go_clockwise(360) 
+    #sleep(2)
+    motor.go_anticlockwise(360)
+    #sleep(2)
+    motor.cleanup()
+    #motor.stop()
+except:
+    GPIO.cleanup()
