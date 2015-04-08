@@ -17,7 +17,7 @@ class Motor:
         GPIO.setup(self.b, GPIO.OUT)
         GPIO.setup(self.e, GPIO.OUT)
 
-    def self.degrees_to_time(degrees):
+    def degrees_to_time(degrees):
         return degrees * SECONDS_PER_DEGREE
         
     def go_clockwise(self,degrees=360):
