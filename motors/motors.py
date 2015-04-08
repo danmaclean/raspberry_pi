@@ -40,8 +40,6 @@ class Motor:
     def cleanup(self):
         GPIO.cleanup()
 
-GPIO.cleanup()
-
 try:
     motor = Motor(4,17,18)
     motor.go_clockwise(360) 
