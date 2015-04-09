@@ -14,8 +14,8 @@ def do_plot(original_image, scaled_image):
     axes3.set_ylabel('GreyReds')
     
     axes1.imshow(original_image)
-    axes2.imshow(scaled_image)
-    axes3.imshow(scaled_image)
+    axes2.imshow(scaled_image,cmap='GreyIntensity')
+    axes3.imshow(scaled_image,cmap='RedSplit')
     
     plt.savefig('test.png')
     plt.close()
