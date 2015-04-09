@@ -1,4 +1,5 @@
 import IRCamera as ir
+import matplotlib.pyplot as plt
 
 def do_plot(original_image, scaled_image):
     fig = plt.figure(figsize=(10,3))
