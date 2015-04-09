@@ -18,10 +18,10 @@ def register_colour_maps():
          'blue':  ((0.0,  0.0, 0.0),
                    (0.0,  0.0, 0.0),
                    (1.0,  1.0, 1.0))}
-                   
-        plt.register_cmap(name='GreyIntensity', data=cdict)
-        
-        cdict2 = {'red': ((0.0, 0.0, 0.0),
+    
+    plt.register_cmap(name='GreyIntensity', data=cdict)
+    
+    cdict2 = {'red': ((0.0, 0.0, 0.0),
                  (0.5, 1.0, 0.7),
                  (1.0, 1.0, 1.0)),
          'green': ((0.0, 0.0, 0.0),
@@ -30,8 +30,8 @@ def register_colour_maps():
          'blue': ((0.0, 0.0, 0.0),
                   (0.5, 1.0, 0.0),
                   (1.0, 0.5, 1.0))}
-          
-        plt.register_cmap(name='RedSplit', data=cdict2)
+    
+    plt.register_cmap(name='RedSplit', data=cdict2)
 
 def make_hot_ones(img):
     tmp = img.copy()
