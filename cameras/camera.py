@@ -2,14 +2,6 @@ GPIO.setmode(GPIO.BCM)
 from time import sleep
 import Rpi.GPIO as GPIO
 
-import picamera
-
-class PiCam(self):
-     
-     def __init__(self):
-         self.cam = picamera.PiCamera()
-    
-
 class CableRelease(self,pin1,pin2):
     
     def __init__(self):
