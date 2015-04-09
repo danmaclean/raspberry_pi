@@ -20,8 +20,9 @@ def do_plot(original_image, scaled_image):
     fig.savefig('test.png',dpi=76)
 
 
-image = ir.get_rgb_array(2592,1944)
+image = ir.get_rgb_array(100,100)
 print "scaling image.."
 scaled_image = ir.enhance_ir(image)
+print scaled_image.shape
 print "plotting.."
 do_plot(image,scaled_image)
