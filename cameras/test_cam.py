@@ -20,5 +20,7 @@ def do_plot(original_image, scaled_image):
 
 
 image = ir.get_rgb_array(2592,1944)
+print "scaling image.."
 scaled_image = ir.enhance_ir(image)
+print "plotting.."
 do_plot(image,scaled_image)
