@@ -17,7 +17,7 @@ def do_plot(original_image, scaled_image):
     axes3.imshow(scaled_image,cmap='RedSplit')
     
     fig.tight_layout()
-    fig.savefig('test.png',fig)
+    fig.savefig('test.png',dpi=76)
 
 
 image = ir.get_rgb_array(2592,1944)
