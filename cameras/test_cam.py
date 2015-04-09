@@ -2,6 +2,7 @@ import IRCamera as ir
 import matplotlib.pyplot as plt
 
 def do_plot(original_image, scaled_image):
+    ir.register_colour_maps()
     fig = plt.figure(figsize=(10,3))
     
     axes1 = fig.add_subplot(1,3,1)
@@ -13,8 +14,8 @@ def do_plot(original_image, scaled_image):
     axes3.set_ylabel('GreyReds')
     
     axes1.imshow(original_image)
-    axes2.imshow(scaled_image,cmap='Jet')
-    axes3.imshow(scaled_image,cmap='Jet')
+    axes2.imshow(scaled_image)
+    axes3.imshow(scaled_image)
     
     plt.savefig('test.png')
     plt.close()
