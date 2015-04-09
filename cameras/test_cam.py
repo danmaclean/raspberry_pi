@@ -19,6 +19,6 @@ def do_plot(original_image, scaled_image):
     plt.show(fig)
 
 
-image = ir.get_rgb_array(width,height)
+image = ir.get_rgb_array(2592,1944)
 scaled_image = ir.enhance_ir(image)
 do_plot(image,scaled_image)
