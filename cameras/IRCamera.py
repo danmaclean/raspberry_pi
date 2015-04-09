@@ -1,6 +1,7 @@
 import picamera
 import picamera.array
 import numpy
+import time
 
 width = 2592
 height = 1944
