@@ -1,4 +1,5 @@
 import picamera
+import picamera.array
 import numpy
 
 width = 2592
