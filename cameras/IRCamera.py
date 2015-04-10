@@ -35,7 +35,7 @@ def register_colour_maps():
 
 def get_healthy_region_mask(img,lower=0.1, upper=0.9 ):
     tmp = img.copy()
-    tmp[(tmp >= lower) & (tmp <= higher)] = 1
+    tmp[(tmp >= lower) & (tmp <= upper)] = 1
     tmp[tmp < 1] = 0
     return tmp
 
