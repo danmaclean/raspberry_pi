@@ -95,8 +95,8 @@ def do_ndvi_plot(original_image, ndvi_im,fname='ndvi.png'):
     axes3.set_ylabel('GreyReds')
     
     axes1.imshow(original_image)
-    axes2.imshow(scaled_image,cmap='GreyIntensity')
-    axes3.imshow(scaled_image,cmap='RedSplit')
+    axes2.imshow(ndvi_im,cmap='GreyIntensity')
+    axes3.imshow(ndvi_im,cmap='RedSplit')
     
     plt.savefig(fname)
     plt.close()
