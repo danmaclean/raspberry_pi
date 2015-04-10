@@ -33,16 +33,22 @@ def register_colour_maps():
     
     plt.register_cmap(name='RedSplit', data=cdict2)
 
-def make_hot_ones(img):
+def get_healthy_region_mask(img,lower=0.1, upper=0.9 ):
     tmp = img.copy()
-    tmp[tmp > 0.2] = 1
+    tmp[(tmp >= lower) & (tmp <= higher)] = 1
     tmp[tmp < 1] = 0
     return tmp
 
-def make_cold_ones(img):
+def get_unhealthy_region_mask(img, lower=-0.1, upper=0.1):
     tmp = img.copy()
-    tmp[(tmp < 0.2) & (tmp > 0.0)] = 1
+    tmp[(tmp >= lower) & (tmp <= upper)] = 1
     tmp[tmp < 1] = 0
+    return tmp
+
+def get_cold_region(img, upper):
+    tmp = img.copy()
+    tmp[tmp <= upper] = 1
+    tmp[tmp <1] = 0
     return tmp
 
 def get_rgb_array(width,height):
@@ -56,18 +62,52 @@ def get_rgb_array(width,height):
             # Show size of RGB data
             return stream.array
 
-def blue_filter(r,g,b):
-    '''scales a single pixel for IR'''
+def ndvi_filter(r,g,b):
+    '''scales a single pixel for IR to give the NDVI value'''
     try:
         return (r-b)/(r+b)
     except ZeroDivisionError:
         return 0.0
     
-def enhance_ir(im):
-    '''takes image and returns np.ndarray of values scaled with blue_filter'''
+def ndvi(im):
+    '''takes image and returns np.ndarray of values scaled with ndvi_filter.
+    Ensures the range of values is -1,1 by setting top left pixels manually.
+    '''
     result = np.empty(shape=(im.shape[0],im.shape[1]))
     for i in range(im.shape[0]):
         for j in range(im.shape[1]):
-            result[i,j] = blue_filter(float(im[i,j][0]), float(im[i,j][1]), float(im[i,j][2]))
+            result[i,j] = ndvi_filter(float(im[i,j][0]), float(im[i,j][1]), float(im[i,j][2]))
+    #fix the range
+    result[0,0]= -1.0
+    result[0,1]= 1.0
     return result
 
+def do_ndvi_plot(original_image, ndvi_im,fname='ndvi.png'):
+    IRCamera.register_colour_maps()
+    fig = plt.figure(figsize=(10,3))
+    
+    axes1 = fig.add_subplot(1,3,1)
+    axes2 = fig.add_subplot(1,3,2)
+    axes3 = fig.add_subplot(1,3,3)
+    
+    axes1.set_ylabel("Raw")
+    axes2.set_ylabel('Grey')
+    axes3.set_ylabel('GreyReds')
+    
+    axes1.imshow(original_image)
+    axes2.imshow(scaled_image,cmap='GreyIntensity')
+    axes3.imshow(scaled_image,cmap='RedSplit')
+    
+    plt.savefig(fname)
+    plt.close()
+    
+def do_masking_plot(im,ndvi_im,healthy_im,unhealthy_im,cold_im,fname="mask_plot.png"):
+    ims = [im,ndvi_im,healthy_im,unhealthy_im,cold_im]
+    fig = plt.figure(figsize=(16,5))
+    for i in range(1,6):
+        img_ax = fig.add_subplot(1,5,i)
+        if i == 1:
+            img_ax.imshow(im[i]-1,cmap="GreyIntensity")
+    plt.savefig(fname)
+    plt.close()
+    
