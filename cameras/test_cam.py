@@ -32,6 +32,6 @@ healthy_mask = ir.get_healthy_region_mask(ndvi_im)
 ill_mask = ir.get_unhealthy_region_mask(ndvi_im)
 cold_mask = ir.get_cold_region_mask(ndvi_im)
 
-ir.do_mask_plot(im,ndvi_im,healthy_mask,ill_mask,cold_mask)
+ir.do_mask_plot(image,ndvi_im,healthy_mask,ill_mask,cold_mask)
 
 
