@@ -83,7 +83,7 @@ def ndvi(im):
     return result
 
 def do_ndvi_plot(original_image, ndvi_im,fname='ndvi.png'):
-    IRCamera.register_colour_maps()
+    register_colour_maps()
     fig = plt.figure(figsize=(10,3))
     
     axes1 = fig.add_subplot(1,3,1)
