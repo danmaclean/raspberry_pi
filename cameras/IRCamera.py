@@ -45,7 +45,7 @@ def get_unhealthy_region_mask(img, lower=-0.1, upper=0.1):
     tmp[tmp < 1] = 0
     return tmp
 
-def get_cold_region(img, upper):
+def get_cold_region_mask(img, upper):
     tmp = img.copy()
     tmp[tmp <= upper] = 1
     tmp[tmp <1] = 0
