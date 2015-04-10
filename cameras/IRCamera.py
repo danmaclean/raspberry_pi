@@ -101,7 +101,7 @@ def do_ndvi_plot(original_image, ndvi_im,fname='ndvi.png'):
     plt.savefig(fname)
     plt.close()
     
-def do_masking_plot(im,ndvi_im,healthy_im,unhealthy_im,cold_im,fname="mask_plot.png"):
+def do_mask_plot(im,ndvi_im,healthy_im,unhealthy_im,cold_im,fname="mask_plot.png"):
     ims = [im,ndvi_im,healthy_im,unhealthy_im,cold_im]
     fig = plt.figure(figsize=(16,5))
     for i in range(1,6):
