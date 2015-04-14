@@ -111,6 +111,9 @@ def do_mask_plot(im,ndvi_im,healthy_im,unhealthy_im,cold_im,fname="mask_plot.png
         img_ax = fig.add_subplot(1,5,i)
         if i == 1:
             img_ax.imshow(ims[i]-1,cmap="GreyIntensity")
+        else:
+            img_ax.imshow(ims[i]-1,cmap="RedSplit")
+        
     plt.savefig(fname)
     plt.close()
     
