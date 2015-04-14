@@ -1,6 +1,10 @@
 
 import picamera
 import os
+import Rpi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(17, GPIO.OUT)
 
 prefix = 'ir_image'
 suffix = '.jpg'
@@ -15,8 +19,10 @@ while filename in files:
 
 cam = picamera.PiCamera()
 cam.start_preview()
+GPIO.output(17,True)
 print "press Enter to shoot"
 raw_input("...")
 cam.hflip=True
 cam.vflip=True
 cam.capture(filename)
+GPIO.output(17,False)
