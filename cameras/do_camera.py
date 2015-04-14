@@ -2,7 +2,7 @@
 import picamera
 import os
 
- prefix = 'ir_image'
+prefix = 'ir_image'
 suffix = '.jpg'
 number = 0
 filename = prefix + str(number) + suffix
