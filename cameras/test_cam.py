@@ -21,7 +21,7 @@ def do_ndvi_plot(original_image, ndvi_im,fname='ndvi.png'):
     plt.close()
 
 
-image = ir.get_rgb_array(100,100)
+image = ir.get_rgb_array(1920,1080)
 print "scaling image.."
 ndvi_im = ir.ndvi(image)
 print ndvi_im.shape
