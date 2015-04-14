@@ -60,6 +60,7 @@ def get_rgb_array(width,height):
             time.sleep(2)
             camera.capture(stream, 'rgb')
             # Show size of RGB data
+            print stream.array[0]
             return stream.array
 
 def ndvi_filter(r,g,b):
