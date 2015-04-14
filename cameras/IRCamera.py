@@ -33,15 +33,15 @@ def register_colour_maps():
     
     plt.register_cmap(name='RedSplit', data=cdict2)
 
-def get_healthy_region_mask(img,lower=0.1, upper=0.9 ):
+def get_healthy_region_mask(img,lower=0.2, upper=0.9 ):
     tmp = img.copy()
-    tmp[(tmp >= lower) & (tmp <= upper)] = 1
+    tmp[(tmp >= lower) and (tmp <= upper)] = 1
     tmp[tmp < 1] = 0
     return tmp
 
-def get_unhealthy_region_mask(img, lower=-0.1, upper=0.1):
+def get_unhealthy_region_mask(img, lower=-0.1, upper=0.2):
     tmp = img.copy()
-    tmp[(tmp >= lower) & (tmp <= upper)] = 1
+    tmp[(tmp >= lower) and (tmp <= upper)] = 1
     tmp[tmp < 1] = 0
     return tmp
 
