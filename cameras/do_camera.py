@@ -9,7 +9,7 @@ filename = prefix + str(number) + suffix
 
 files = os.listdir('.')
 
-while filename in files
+while filename in files:
     number += 1
     filename = prefix + str(number) + suffix
 
