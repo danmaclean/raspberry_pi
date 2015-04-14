@@ -34,22 +34,15 @@ def register_colour_maps():
     plt.register_cmap(name='RedSplit', data=cdict2)
 
 def get_healthy_region_mask(img,lower=0.2, upper=0.9 ):
-    tmp = img.copy()
-    tmp[(tmp >= lower) and (tmp <= upper)] = 1
-    tmp[tmp < 1] = 0
-    return tmp
+    tmp = img <= upper and img >= lower
+    return tmp.astype(int)
 
 def get_unhealthy_region_mask(img, lower=-0.1, upper=0.2):
-    tmp = img.copy()
-    tmp[(tmp >= lower) and (tmp <= upper)] = 1
-    tmp[tmp < 1] = 0
-    return tmp
+    return get_healthy_region_mask(img, lower, upper)
 
 def get_cold_region_mask(img, upper=-0.1):
-    tmp = img.copy()
-    tmp[tmp <= upper] = 1
-    tmp[tmp <1] = 0
-    return tmp
+    tmp = img >= upper
+    return tmp.astype(int)
 
 def get_rgb_array(width,height):
     '''returns a 3D numpy array of image RGB values '''
