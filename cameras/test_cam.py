@@ -37,7 +37,7 @@ print "ill_mask is:"
 print ill_mask
 cold_mask = ir.get_cold_region_mask(ndvi_im)
 print "cold mask is:"
-print cold mask
+print cold_mask
 
 ir.do_mask_plot(image,ndvi_im,healthy_mask,ill_mask,cold_mask)
 
