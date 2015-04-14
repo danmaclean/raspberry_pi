@@ -29,8 +29,15 @@ print "plotting.."
 ir.do_ndvi_plot(image,ndvi_im)
 
 healthy_mask = ir.get_healthy_region_mask(ndvi_im)
+print "healthy mask is:"
+print healthy_mask
+
 ill_mask = ir.get_unhealthy_region_mask(ndvi_im)
+print "ill_mask is:"
+print ill_mask
 cold_mask = ir.get_cold_region_mask(ndvi_im)
+print "cold mask is:"
+print cold mask
 
 ir.do_mask_plot(image,ndvi_im,healthy_mask,ill_mask,cold_mask)
 
