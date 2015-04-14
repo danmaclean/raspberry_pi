@@ -81,8 +81,8 @@ def ndvi(im):
             #print "R = ", float(im[i,j][0]), "B = ",float(im[i,j][2]), "ndvi =", ndvi_filter(float(im[i,j][0]), float(im[i,j][1]), float(im[i,j][2]))
             result[i,j] = ndvi_filter(float(im[i,j][0]), float(im[i,j][1]), float(im[i,j][2]))
     #fix the range
-    result[0,0]= -1.0
-    result[0,1]= 1.0
+    #result[0,0]= -1.0
+    #result[0,1]= 1.0
     return result
 
 def do_ndvi_plot(original_image, ndvi_im,fname='ndvi.png'):
