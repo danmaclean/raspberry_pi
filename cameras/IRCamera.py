@@ -74,9 +74,11 @@ def ndvi(im):
     '''takes image and returns np.ndarray of values scaled with ndvi_filter.
     Ensures the range of values is -1,1 by setting top left pixels manually.
     '''
+    print "im shape is", im.shape
     result = np.empty(shape=(im.shape[0],im.shape[1]))
     for i in range(im.shape[0]):
         for j in range(im.shape[1]):
+            print "R = ", float(im[i,j][0], "B = ",float(im[i,j][2])
             result[i,j] = ndvi_filter(float(im[i,j][0]), float(im[i,j][1]), float(im[i,j][2]))
     #fix the range
     result[0,0]= -1.0
