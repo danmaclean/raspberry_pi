@@ -1,5 +1,6 @@
 
-import picamera import os
+import picamera
+import os
 
  prefix = 'ir_image'
 suffix = '.jpg'
