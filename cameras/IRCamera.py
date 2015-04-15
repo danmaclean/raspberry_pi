@@ -41,7 +41,7 @@ def get_unhealthy_region_mask(img, lower=-0.1, upper=0.2):
     return get_healthy_region_mask(img, lower, upper)
 
 def get_cold_region_mask(img, upper=-0.1):
-    tmp = img >= upper
+    tmp = img <= upper
     return tmp.astype(int)
 
 def get_rgb_array(width,height):
