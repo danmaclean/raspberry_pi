@@ -3,6 +3,7 @@
 """
 stepper_motor.py
 
+
 Created by Dan MacLean (TSL) on 2014-08-10.
 Copyright (c) 2014 Dan MacLean. All rights reserved.
 """
@@ -11,7 +12,55 @@ import sys
 import os
 import RPi.GPIO as GPIO
 import time
+GPIO.setmode(GPIO.BCM)
 
+class StepperMotor:
+    
+    def __init__(self, pin1,pin2,pin3,pin4)
+       self.pin1 = pin1
+       self.pin2 = pin2
+       self.pin3 = pin3
+       self.pin4 = pin4
+       GPIO.setup(self.pin1, GPIO.OUT)
+       GPIO.setup(self.pin2, GPIO.OUT)
+       GPIO.setup(self.pin3, GPIO.OUT)
+       GPIO.setup(self.pin4, GPIO.OUT)
+       self.sequence = [[True,False,False,False],
+       [True,True,False,False],
+       [False,True,False,False],
+       [False,True,True,False],
+       [False,False,True,False],
+       [False,False,True,True],
+       [False,False,False,True],
+       [True,False,False,True]]
+       self.reverse_sequence = reversed(self.sequence)
+       
+    def clockwise(self,steps,delay=(10/1000.0)):
+        self.move(self,self.sequence,steps,delay)
+    
+    def anticlockwise(self,steps,delay=(10/1000.0)):
+        self.move(self,self.reverse_sequence,steps,delay) 
+    
+    def move(self,sequence,steps, delay=(10/1000.0)):
+        for i in range(0,steps)
+            for s in sequence:
+                self.set_step(s)
+    
+    def set_step(self,s):
+        GPIO.output(self.pin1, s[0])
+        GPIO.output(self.pin1, s[1])
+        GPIO.output(self.pin1, s[2])
+        GPIO.output(self.pin1, s[3])
+    
+
+try:
+    motor = StepperMotor(17,18,21,22)
+    motor.clockwise(4) 
+    motor.anticlockwise(4)
+except:
+    GPIO.cleanup()
+
+'''
 def main():
 	GPIO.setmode(GPIO.BCM)
 	enable_pin = 18
@@ -64,4 +113,4 @@ def main():
 
 if __name__ == '__main__':
 	main()
-
+'''
