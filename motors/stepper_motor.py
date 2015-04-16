@@ -18,28 +18,28 @@ class StepperMotor:
     
     def __init__(self, pin1,pin2,pin3,pin4):
         GPIO.cleanup()
-       self.pin1 = pin1
-       self.pin2 = pin2
-       self.pin3 = pin3
-       self.pin4 = pin4
-       GPIO.setup(self.pin1, GPIO.OUT)
-       GPIO.setup(self.pin2, GPIO.OUT)
-       GPIO.setup(self.pin3, GPIO.OUT)
-       GPIO.setup(self.pin4, GPIO.OUT)
-       GPIO.output(self.pin1, False)
-       GPIO.output(self.pin2, False)
-       GPIO.output(self.pin3, False)
-       GPIO.output(self.pin4, False)
-       self.sequence = [[True,False,False,False],
-       [True,True,False,False],
-       [False,True,False,False],
-       [False,True,True,False],
-       [False,False,True,False],
-       [False,False,True,True],
-       [False,False,False,True],
-       [True,False,False,True]]
-       self.reverse_sequence = reversed(self.sequence)
-       
+        self.pin1 = pin1
+        self.pin2 = pin2
+        self.pin3 = pin3
+        self.pin4 = pin4
+        GPIO.setup(self.pin1, GPIO.OUT)
+        GPIO.setup(self.pin2, GPIO.OUT)
+        GPIO.setup(self.pin3, GPIO.OUT)
+        GPIO.setup(self.pin4, GPIO.OUT)
+        GPIO.output(self.pin1, False)
+        GPIO.output(self.pin2, False)
+        GPIO.output(self.pin3, False)
+        GPIO.output(self.pin4, False)
+        self.sequence = [[True,False,False,False],
+        [True,True,False,False],
+        [False,True,False,False],
+        [False,True,True,False],
+        [False,False,True,False],
+        [False,False,True,True],
+        [False,False,False,True],
+        [True,False,False,True]]
+        self.reverse_sequence = reversed(self.sequence)
+    
     def clockwise(self,steps,delay=(10/1000.0)):
         print "clockwise"
         self.move(self,self.sequence,steps,delay)
