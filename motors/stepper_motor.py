@@ -42,7 +42,7 @@ class StepperMotor:
         self.move(self,self.reverse_sequence,steps,delay) 
     
     def move(self,sequence,steps, delay=(10/1000.0)):
-        for i in range(0,steps)
+        for i in range(0,steps):
             for s in sequence:
                 self.set_step(s)
     
