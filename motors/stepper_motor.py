@@ -15,6 +15,12 @@ import time
 GPIO.setmode(GPIO.BCM)
 
 class StepperMotor:
+    '''
+    Represents a Stepper Motor with 512 steps per rotation
+    using an 8 step sequence.  
+    The model of motor tested with this is a
+    28BJY-48 with ULN2003 control board
+    '''
     
     def __init__(self, pin1,pin2,pin3,pin4):
         self.pin1 = pin1
@@ -39,15 +45,17 @@ class StepperMotor:
         [True,False,False,True]]
         self.reverse_sequence = reversed(self.sequence)
     
-    def clockwise(self,steps,delay=(1/1000.0)):
-        print "clockwise"
+    def clockwise(self,steps=512,delay=(1/1000.0)):
+        '''turns motor by a number of steps (default 512)
+        '''
         StepperMotor.move(self,self.sequence,steps,delay)
     
     def anticlockwise(self,steps,delay=(1/1000.0)):
+        '''turns motor by a number of steps (default 512)
+        '''
         StepperMotor.move(self,self.reverse_sequence,steps,delay) 
     
     def move(self,sequence,steps, delay=(1/1000.0)):
-        print "move"
         for i in range(0,steps):
             print i
             for s in sequence:
@@ -55,7 +63,6 @@ class StepperMotor:
                 StepperMotor.set_step(self,s,delay)
     
     def set_step(self,s,delay):
-        print "s is", s
         GPIO.output(self.pin1, s[0])
         time.sleep(delay)
         GPIO.output(self.pin2, s[1])
@@ -70,7 +77,7 @@ try:
     print "trying motor"
     motor = StepperMotor(17,18,21,22)
     motor.clockwise(512) 
-    #motor.anticlockwise(4)
+    motor.anticlockwise(512)
     GPIO.cleanup()
 except:
     GPIO.cleanup()
