@@ -52,7 +52,7 @@ class StepperMotor:
             print i
             for s in sequence:
                 print s
-                StepperMotor.set_step(s)
+                StepperMotor.set_step(self,s)
     
     def set_step(self,s):
         print "s is", s
