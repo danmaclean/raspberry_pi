@@ -55,11 +55,9 @@ class StepperMotor:
         '''
         StepperMotor.move(self,self.reverse_sequence,steps,delay) 
     
-    def move(self,sequence,steps, delay=(1/1000.0)):
+    def move(self,sequence,steps=512, delay=(1/1000.0)):
         for i in range(0,steps):
-            print i
             for s in sequence:
-                print s
                 StepperMotor.set_step(self,s,delay)
     
     def set_step(self,s,delay):
@@ -76,7 +74,7 @@ class StepperMotor:
 try:
     print "trying motor"
     motor = StepperMotor(17,18,21,22)
-    motor.clockwise(512) 
+    #motor.clockwise(512) 
     motor.anticlockwise(512)
     GPIO.cleanup()
 except:
