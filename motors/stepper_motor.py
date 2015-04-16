@@ -69,8 +69,9 @@ class StepperMotor:
 try:
     print "trying motor"
     motor = StepperMotor(17,18,21,22)
-    motor.clockwise(100) 
+    motor.clockwise(512) 
     #motor.anticlockwise(4)
+    GPIO.cleanup()
 except:
     GPIO.cleanup()
 
