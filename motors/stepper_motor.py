@@ -40,17 +40,18 @@ class StepperMotor:
         StepperMotor.move(self,self.sequence,steps,delay)
     
     def anticlockwise(self,steps,delay=(10/1000.0)):
-        self.move(self,self.reverse_sequence,steps,delay) 
+        StepperMotor.move(self,self.reverse_sequence,steps,delay) 
     
     def move(self,sequence,steps, delay=(10/1000.0)):
         print "move"
         for i in range(0,steps):
-            print "i"
+            print i
             for s in sequence:
                 print s
                 self.set_step(s)
     
     def set_step(self,s):
+        print s
         GPIO.output(self.pin1, s[0])
         GPIO.output(self.pin2, s[1])
         GPIO.output(self.pin3, s[2])
