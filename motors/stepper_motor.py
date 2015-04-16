@@ -51,7 +51,7 @@ class StepperMotor:
                 self.set_step(s)
     
     def set_step(self,s):
-        print s
+        print "s is", s
         GPIO.output(self.pin1, s[0])
         GPIO.output(self.pin2, s[1])
         GPIO.output(self.pin3, s[2])
