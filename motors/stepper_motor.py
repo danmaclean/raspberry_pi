@@ -17,6 +17,7 @@ GPIO.setmode(GPIO.BCM)
 class StepperMotor:
     
     def __init__(self, pin1,pin2,pin3,pin4):
+        GPIO.cleanup()
        self.pin1 = pin1
        self.pin2 = pin2
        self.pin3 = pin3
@@ -25,6 +26,10 @@ class StepperMotor:
        GPIO.setup(self.pin2, GPIO.OUT)
        GPIO.setup(self.pin3, GPIO.OUT)
        GPIO.setup(self.pin4, GPIO.OUT)
+       GPIO.output(self.pin1, False)
+       GPIO.output(self.pin2, False)
+       GPIO.output(self.pin3, False)
+       GPIO.output(self.pin4, False)
        self.sequence = [[True,False,False,False],
        [True,True,False,False],
        [False,True,False,False],
@@ -60,7 +65,7 @@ class StepperMotor:
 
 try:
     print "trying motor"
-    motor = StepperMotor(17,21,18,22)
+    motor = StepperMotor(17,18,21,22)
     motor.clockwise(4) 
     motor.anticlockwise(4)
 except:
