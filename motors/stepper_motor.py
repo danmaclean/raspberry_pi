@@ -37,7 +37,7 @@ class StepperMotor:
        
     def clockwise(self,steps,delay=(10/1000.0)):
         print "clockwise"
-        StepperMotor.move(self,self.sequence,steps,delay)
+        self.move(self,self.sequence,steps,delay)
     
     def anticlockwise(self,steps,delay=(10/1000.0)):
         StepperMotor.move(self,self.reverse_sequence,steps,delay) 
