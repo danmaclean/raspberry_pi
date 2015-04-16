@@ -39,7 +39,7 @@ class StepperMotor:
         [True,False,False,True]]
         self.reverse_sequence = reversed(self.sequence)
     
-    def clockwise(self,steps,delay=(10/1000.0)):
+    def clockwise(self,steps,delay=(1/1000.0)):
         print "clockwise"
         StepperMotor.move(self,self.sequence,steps,delay)
     
