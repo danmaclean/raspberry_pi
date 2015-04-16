@@ -37,7 +37,7 @@ class StepperMotor:
        
     def clockwise(self,steps,delay=(10/1000.0)):
         print "clockwise"
-        move(self,self.sequence,steps,delay)
+        self.move(self,self.sequence,steps,delay)
     
     def anticlockwise(self,steps,delay=(10/1000.0)):
         self.move(self,self.reverse_sequence,steps,delay) 
@@ -52,9 +52,9 @@ class StepperMotor:
     
     def set_step(self,s):
         GPIO.output(self.pin1, s[0])
-        GPIO.output(self.pin1, s[1])
-        GPIO.output(self.pin1, s[2])
-        GPIO.output(self.pin1, s[3])
+        GPIO.output(self.pin2, s[1])
+        GPIO.output(self.pin3, s[2])
+        GPIO.output(self.pin4, s[3])
     
 
 try:
