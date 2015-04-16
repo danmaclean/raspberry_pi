@@ -23,7 +23,6 @@ class StepperMotor:
     '''
     
     def __init__(self, pin1,pin2,pin3,pin4):
-        print "initting"
         self.pin1 = pin1
         self.pin2 = pin2
         self.pin3 = pin3
@@ -45,7 +44,6 @@ class StepperMotor:
         [False,False,False,True],
         [True,False,False,True]]
         self.reverse_sequence = list(reversed(self.sequence))
-        print self.reverse_sequence
     
     def clockwise(self,steps=512,delay=(1/1000.0)):
         '''turns motor by a number of steps (default 512)
@@ -76,7 +74,6 @@ class StepperMotor:
 try:
     print "trying motor"
     motor = StepperMotor(17,18,21,22)
-    #motor.clockwise(512) 
     motor.anticlockwise(512)
     GPIO.cleanup()
 except:
