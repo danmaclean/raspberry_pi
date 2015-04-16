@@ -44,7 +44,7 @@ class StepperMotor:
         [False,False,True,True],
         [False,False,False,True],
         [True,False,False,True]]
-        self.reverse_sequence = list(reversed(self.sequence.reverse()))
+        self.reverse_sequence = list(reversed(self.sequence))
         print self.reverse_sequence
     
     def clockwise(self,steps=512,delay=(1/1000.0)):
