@@ -44,6 +44,7 @@ class StepperMotor:
         [False,False,False,True],
         [True,False,False,True]]
         self.reverse_sequence = reversed(self.sequence)
+        print self.reverse_sequence
     
     def clockwise(self,steps=512,delay=(1/1000.0)):
         '''turns motor by a number of steps (default 512)
@@ -53,7 +54,6 @@ class StepperMotor:
     def anticlockwise(self,steps,delay=(1/1000.0)):
         '''turns motor by a number of steps (default 512)
         '''
-        print "in here"
         StepperMotor.move(self,self.reverse_sequence,steps,delay) 
     
     def move(self,sequence,steps=512, delay=(1/1000.0)):
