@@ -43,10 +43,10 @@ class StepperMotor:
         print "clockwise"
         StepperMotor.move(self,self.sequence,steps,delay)
     
-    def anticlockwise(self,steps,delay=(10/1000.0)):
+    def anticlockwise(self,steps,delay=(1/1000.0)):
         StepperMotor.move(self,self.reverse_sequence,steps,delay) 
     
-    def move(self,sequence,steps, delay=(10/1000.0)):
+    def move(self,sequence,steps, delay=(1/1000.0)):
         print "move"
         for i in range(0,steps):
             print i
