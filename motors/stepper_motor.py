@@ -52,21 +52,25 @@ class StepperMotor:
             print i
             for s in sequence:
                 print s
-                StepperMotor.set_step(self,s)
+                StepperMotor.set_step(self,s,delay)
     
-    def set_step(self,s):
+    def set_step(self,s,delay):
         print "s is", s
         GPIO.output(self.pin1, s[0])
+        time.sleep(delay)
         GPIO.output(self.pin2, s[1])
+        time.sleep(delay)
         GPIO.output(self.pin3, s[2])
+        time.sleep(delay)
         GPIO.output(self.pin4, s[3])
+        time.sleep(delay)
     
 
 try:
     print "trying motor"
     motor = StepperMotor(17,18,21,22)
     motor.clockwise(7) 
-    motor.anticlockwise(4)
+    #motor.anticlockwise(4)
 except:
     GPIO.cleanup()
 
