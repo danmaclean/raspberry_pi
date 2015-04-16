@@ -23,6 +23,7 @@ class StepperMotor:
     '''
     
     def __init__(self, pin1,pin2,pin3,pin4):
+        print "initting"
         self.pin1 = pin1
         self.pin2 = pin2
         self.pin3 = pin3
