@@ -11,7 +11,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../motors")
 import stepper_motor
-
+import time
 class TurnTable:
     
     def __init__(self, sections=6, motor_pins=[17,18,21,22]):
