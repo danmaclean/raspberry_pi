@@ -50,7 +50,7 @@ class TurnTable:
     
     def get_steps_to(self,target_section):
         '''gets the number of steps from self.current_section to target section.'''
-        return self.steps_to_sections_from_origin[target_section] - current
+        return self.steps_to_sections_from_origin[target_section] - self.current_section
         
 
 
