@@ -53,7 +53,7 @@ class TurnTable:
         
         if missing_steps > 0:
             for m in range(1,missing_steps + 1):
-                for j in range(m, len(distances) + 1)
+                for j in range(m, len(distances) + 1):
                     distances[j] += 1
         print "distances after:", distances
         distance_to_section = {}
