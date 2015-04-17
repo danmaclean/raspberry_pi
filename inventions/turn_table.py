@@ -49,6 +49,7 @@ class TurnTable:
 
 try:
     table = TurnTable.new(6,[17,18,21,22])
+    print table
     stops = [1,5,4,2,3]
     for s in stops:
         table.go_to_section(s)
