@@ -56,6 +56,10 @@ class TurnTable:
                 for j in range(m, len(distances)):
                     distances[j] += 1
         print "distances after:", distances
+        
+        total_distance = distances[-1] + self.steps_between_sections
+        assert total_distance == 512, "distances do not cover 512 steps!"
+        
         distance_to_section = {}
         
         for i in range(0, sections):
