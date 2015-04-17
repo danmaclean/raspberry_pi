@@ -35,8 +35,8 @@ class TurnTable:
         distances = [(self.steps_between_sections * i) - self.steps_between_sections for i in range(1,sections + 1)]
         print "distances", distances
         distance_to_section = {}
-        for i in range(1, sections):
-            distance_to_section[i] = distances[i]
+        for i in range(0, sections):
+            distance_to_section[i + 1] = distances[i]
         print distance_to_section
         return distance_to_section 
     
