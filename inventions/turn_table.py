@@ -8,7 +8,7 @@ Created by Dan MacLean (TSL) on 2015-04-16.
 Copyright (c) 2015 Dan MacLean. All rights reserved.
 """
 import sys
-sys.path.append("../motors")
+sys.path.append(os.path.realpath(__file__) + "/../motors")
 print sys.path
 import stepper_motor
 
