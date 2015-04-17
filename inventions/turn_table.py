@@ -66,6 +66,7 @@ class TurnTable:
     def go_to_section(self,target_section):
         '''sends the motor to a particular section'''
         steps_to_go = TurnTable.get_steps_to(self,target_section)
+        print "turning now:", steps_to_go
         if steps_to_go < 0:
             self.motor.anticlockwise(abs(steps_to_go))
         else:
@@ -82,7 +83,7 @@ class TurnTable:
 
 print "running!"
 table = TurnTable(6,[17,18,21,22])
-stops = [5,4,3,2]
+stops = [6,5,4,3,2,1]
 for s in stops:
     print s
     table.go_to_section(s)
