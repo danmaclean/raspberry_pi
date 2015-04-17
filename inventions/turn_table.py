@@ -10,7 +10,6 @@ Copyright (c) 2015 Dan MacLean. All rights reserved.
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../motors")
-print sys.path
 import stepper_motor
 
 class TurnTable:
@@ -47,6 +46,7 @@ class TurnTable:
         return self.steps_to_section[target_section] - current
         
 
+print "running!"
 try:
     table = TurnTable.new(6,[17,18,21,22])
     print table
