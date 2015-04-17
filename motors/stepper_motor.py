@@ -71,12 +71,12 @@ class StepperMotor:
         time.sleep(delay)
     
 
-try:
-    print "trying motor"
-    motor = StepperMotor([17,18,21,22])
-    motor.clockwise(512)
-    motor.anticlockwise(512)
-    GPIO.cleanup()
-except:
-    GPIO.cleanup()
+#try:
+#    print "trying motor"
+#    motor = StepperMotor([17,18,21,22])
+#    motor.clockwise(512)
+#    motor.anticlockwise(512)
+#    GPIO.cleanup()
+#except:
+#    GPIO.cleanup()
 
