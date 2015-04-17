@@ -53,13 +53,11 @@ class TurnTable:
         
 
 
-try:
-    print "running!"
-    table = TurnTable(6,[17,18,21,22])
-    print type(table)
-    stops = [1,5,4,2,3]
-    for s in stops:
-        print s
-        table.go_to_section(s)
-except:
-    "huh?"
+
+print "running!"
+table = TurnTable(6,[17,18,21,22])
+print type(table)
+stops = [1,5,4,2,3]
+for s in stops:
+    print s
+    table.go_to_section(s)
