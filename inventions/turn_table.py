@@ -7,7 +7,7 @@ turn_table.py
 Created by Dan MacLean (TSL) on 2015-04-16.
 Copyright (c) 2015 Dan MacLean. All rights reserved.
 """
-import ../motors/StepperMotor
+import '../motors/StepperMotor'
 
 class TurnTable:
     
