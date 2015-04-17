@@ -9,7 +9,7 @@ Copyright (c) 2015 Dan MacLean. All rights reserved.
 """
 import sys
 sys.path.append("../motors")
-import StepperMotor
+import stepper_motor
 
 class TurnTable:
     
