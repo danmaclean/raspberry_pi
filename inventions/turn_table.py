@@ -19,8 +19,8 @@ class TurnTable:
         print "oins:", motor_pins
         self.sections = sections
         self.motor = StepperMotor(motor_pins)
-        self.steps_between_sections = TurnTable.get_steps_between_sections(sections)
-        self.steps_to_sections_from_origin = TurnTable.get_steps_to_sections(sections)
+        self.steps_between_sections = TurnTable.get_steps_between_sections(self,sections)
+        self.steps_to_sections_from_origin = TurnTable.get_steps_to_sections(self,sections)
         self.current_section = 1
         
         print "steps_between_sections:", self.steps_between_sections
