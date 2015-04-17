@@ -50,7 +50,7 @@ class TurnTable:
         if missing_steps > 0:
             for m in range(1,missing_steps):
                 distances[m] += 1
-        
+        assert sum(distances) == 512, "distances do not cover entire step range"
         print "distances", distances
         distance_to_section = {}
         for i in range(0, sections):
@@ -65,6 +65,8 @@ class TurnTable:
             self.motor.anticlockwise(abs(steps_to_go))
         else:
             self.motor.clockwise(steps_to_go)
+        self.current_section = target_section
+        self.motor.cleanup()
     
     def get_steps_to(self,target_section):
         '''gets the number of steps from self.current_section to target section.'''
@@ -75,8 +77,8 @@ class TurnTable:
 
 print "running!"
 table = TurnTable(6,[17,18,21,22])
-print type(table)
 stops = [1,5,4,2,3]
 for s in stops:
     print s
     table.go_to_section(s)
+    time.sleep(1)
