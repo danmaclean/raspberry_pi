@@ -47,6 +47,7 @@ class TurnTable:
         distances = [(self.steps_between_sections * i) - self.steps_between_sections for i in range(1,sections + 1)]
         ## now we need to add in the missing steps if any ( we should always have less remaining than there are sections)
         missing_steps = (512 - ((512/sections) * sections) )
+        print "missing steps:", missing_steps
         if missing_steps > 0:
             for m in range(1,missing_steps + 1):
                 distances[m] += 1
