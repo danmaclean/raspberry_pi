@@ -9,7 +9,7 @@ Copyright (c) 2015 Dan MacLean. All rights reserved.
 """
 import sys
 import os
-sys.path.append(os.basename(os.path.realpath(__file__)) + "/../motors")
+sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../motors")
 print sys.path
 import stepper_motor
 
