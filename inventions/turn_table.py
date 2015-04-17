@@ -15,6 +15,7 @@ import stepper_motor
 class TurnTable:
     
     def __init__(self, sections=6, motor_pins=[17,18,21,22]):
+        print "initting"
         self.sections = sections
         self.motor = StepperMotor(motor_pins)
         self.steps_between_sections = TurnTable.get_steps_between_sections(sections)
