@@ -82,7 +82,7 @@ class TurnTable:
 
 print "running!"
 table = TurnTable(6,[17,18,21,22])
-stops = [1,5,4,2,3]
+stops = [5,4,3,2]
 for s in stops:
     print s
     table.go_to_section(s)
