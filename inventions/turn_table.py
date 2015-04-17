@@ -85,6 +85,6 @@ print "running!"
 table = TurnTable(6,[17,18,21,22])
 stops = [6,5,4,3,2,1]
 for s in stops:
-    print s
+    print "going from:", table.current_section, "to section:", s
     table.go_to_section(s)
     time.sleep(1)
