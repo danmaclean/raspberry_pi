@@ -46,8 +46,9 @@ class TurnTable:
         return self.steps_to_section[target_section] - current
         
 
-print "running!"
+
 try:
+    print "running!"
     table = TurnTable.new(6,[17,18,21,22])
     print table
     stops = [1,5,4,2,3]
