@@ -20,10 +20,9 @@ class TurnTable:
         self.sections = sections
         self.motor = stepper_motor.StepperMotor(motor_pins)
         self.steps_between_sections = self.get_steps_between_sections(sections)
+        print "steps_between_sections:", self.steps_between_sections
         self.steps_to_sections_from_origin = self.get_steps_to_sections(sections)
         self.current_section = 1
-        
-        print "steps_between_sections:", self.steps_between_sections
         print "steps_to_sections_from_origin", self.steps_to_sections_from_origin
         print "current section", self.current_section
     
@@ -33,10 +32,11 @@ class TurnTable:
     
     def get_steps_to_sections(self,sections):
         '''gets the number of steps to each section from the origin'''
-        distances = [(self.steps_between_sections * i) - self.steps_between_sections for i in range(1,sections + 1)]
+        distances = [(self.steps_between_sections * i) - self.steps_between_sections for i in range(1,sections)]
         distance_to_section = {}
         for i in range(1, sections + 1):
             distance_to_section[i] = distances[i]
+        print distance_to_section
         return distance_to_section 
     
     def go_to_section(self,target_section):
