@@ -22,6 +22,10 @@ class TurnTable:
         self.steps_between_sections = TurnTable.get_steps_between_sections(sections)
         self.steps_to_sections_from_origin = TurnTable.get_steps_to_sections(sections)
         self.current_section = 1
+        
+        print "steps_between_sections:", self.steps_between_sections
+        print "steps_to_sections_from_origin", self.steps_to_sections_from_origin
+        print "current section", self.current_section
     
     def get_steps_between_sections(self,sections):
         '''divides the 512 steps into specified sections'''
