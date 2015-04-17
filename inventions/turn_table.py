@@ -48,7 +48,7 @@ class TurnTable:
         ## now we need to add in the missing steps if any ( we should always have less remaining than there are sections)
         missing_steps = (512 - ((512/sections) * sections) )
         if missing_steps > 0:
-            for m in range(1,missing_steps):
+            for m in range(1,missing_steps + 1):
                 distances[m] += 1
         assert sum(distances) == 512, "distances do not cover entire step range"
         print "distances", distances
