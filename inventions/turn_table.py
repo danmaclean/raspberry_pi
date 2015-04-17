@@ -71,7 +71,7 @@ class TurnTable:
         else:
             self.motor.clockwise(steps_to_go)
         self.current_section = target_section
-        self.motor.cleanup()
+        #self.motor.cleanup()
     
     def get_steps_to(self,target_section):
         '''gets the number of steps from self.current_section to target section.'''
