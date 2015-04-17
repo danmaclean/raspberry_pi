@@ -42,18 +42,22 @@ class TurnTable:
         512 / 6 = 85
         85 * 6 = 510
         therefore we have 2 steps left over. 
-        Put the first extra step in section 1, then the second in section 2 etc
+        Put the first extra step in section 1, move all sections back one, then the second in section 2 etc
         '''
         distances = [(self.steps_between_sections * i) - self.steps_between_sections for i in range(1,sections + 1)]
+        
         ## now we need to add in the missing steps if any ( we should always have less remaining than there are sections)
         missing_steps = (512 - ((512/sections) * sections) )
         print "missing steps:", missing_steps
+        print "distances before:", distances
+        
         if missing_steps > 0:
             for m in range(1,missing_steps + 1):
-                distances[m] += 1
-        print "distances", distances
-        assert sum(distances) == 512, "distances do not cover entire step range"
+                for j in range(m, len(distances) + 1)
+                    distances[j] += 1
+        print "distances after:", distances
         distance_to_section = {}
+        
         for i in range(0, sections):
             distance_to_section[i + 1] = distances[i]
         print distance_to_section
